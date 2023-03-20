@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ChatGPT Message Reader/Writer
-// @version      1.0
+// @version      1.1
 // @description  Reads the last message, write a message using your beatiful voice
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -119,10 +119,6 @@
                 });
 
                 recognition.start();
-
-                recognition.addEventListener('end', () => {
-                    recognition.start();
-                });
             } else {
                 recognition.stop();
                 writerSvg.removeAttribute('style');
@@ -143,7 +139,6 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 0 3px #000;
             transition: background 200ms;
         }
 
@@ -156,15 +151,19 @@
         }
 
         .yssf-msg-reader.active {
-            background-color: #23789c;
+            background-color: #00a381;
         }
 
         .yssf-msg-reader.active:hover {
-            background-color: #175069;
+            background-color: #006f58;
         }
 
         .yssf-custom {
             right: 40px;
+        }
+
+        textarea {
+            max-width: calc(100% - 65px);
         }
     `);
 })();
